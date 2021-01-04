@@ -2,12 +2,12 @@ from bs4 import BeautifulSoup, SoupStrainer
 import requests
 import os
 
-existfol = os.path.exists("Loot")
+existfol = os.path.exists(".Loot")
 if existfol == False:
-    os.mkdir("Loot")
+    os.mkdir(".Loot")
 
 def initialGet():
-    url = raw_input("LINK_BRO?::> ")
+    url = input("LINK_BRO?::> ")
     page = requests.get(url)    
     data = page.text
     soup = BeautifulSoup(data, features="html5lib")
@@ -31,7 +31,7 @@ def pracis(soup):
                 f.write("\n")
                 prevSab = curSab
     f.close()
-    os.system("wget -P Loot -i link2Get.txt")
+    os.system("wget -P .Loot -i link2Get.txt")
     
 while True:
     initialGet()
